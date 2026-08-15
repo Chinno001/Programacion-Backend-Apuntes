@@ -183,3 +183,49 @@ Ambiguo: no define formato, cantidad, atributos ni dominio.
 - [Real Python — Desarrollo web con Python](https://realpython.com/tutorials/web-dev/)
 - [GeeksforGeeks — MVC vs MVT](https://www.geeksforgeeks.org/software-engineering/difference-between-mvc-and-mvt-design-patterns/)
 - [Python venv docs](https://docs.python.org/3/library/venv.html)
+
+  ## Glosario
+**BackEnd**: Es la capa lógica e infraestructura de una app que se ejecuta en un server. Procesa solicitudes, gestiona **reglas de negocio**, se comunica con los sistemas de almacenamiento y garantiza **seguridad**.
+
+**Arquitectura cliente-servidor**: Modelo en el que se ve cómo se reparten las tareas entre **servidores** y **clientes**. El cliente es el navegador y el server es lo que procesa los datos y ejecuta la lógica. Entender el modelo ayuda a ver dónde puede haber un error, si en el **cliente (navegador)** o en el **servidor (el código)**.
+**CLIENTE --> PETICIÓN --> INTERNET --> PETICIÓN -->SERVIDOR | SERVIDOR --> RESPUESTA --> INTERNET --> RESPUESTA --> CLIENTE**
+
+**Json**: Formato de texto tipo **pares clave-valor** fácil de entender por personas y sistemas informáticos para el **intercambio estructurado de datos**. Es el formato que se usa para enviar y recibir datos entre app Djanjo y cualquier otro sistema o app móvil.
+
+**HTTP/HTTPS**: Protocolos de **comunicación** que definen las reglas para el intercambio de información web con el ciclo **solicitud y respuesta**. HTTPS te agrega el **cifrado**.
+
+**DNS**: Sistema que **traduce nombres de dominios** legible para personas ( Para que no estemos poniendo IPs en el buscador).
+
+**Hosting**: Servicio de infraestructura que provee **almacenamiento y capacidad de cómputo para hospedar los archivos y datos de una app web manteniéndola disp en la red**.
+
+**MVC**: Patrón de arquitectura que separa un sistema en 3 componentes:
+**MODELO**: Gestiona datos y reglas lógicas.
+**VISTA**: Presenta la info al usuario.
+**Controlador**: Coordina las entradas del usuario con Modelo y Vista.
+
+**MVT**: Parecido, pero en Django.
+**MODEL**: También administra datos.
+**VIEW**: Contiene lógica de negocio y decide qué datos mostrar.
+**TEMPLATE**: Define el HTML que recibe el usuario.
+
+**Framework Django**
+Es de **código abierto**, se usa para el **desarrollo de aplicaciones del lado del server en Python**. Te da herramientas para la **autenticación, administración de paneles y seguridad**. En la práctica usar Django evita programar todo desde cero gracias a las funcionalidades que ya trae resueltas. Wenardo.
+
+**Django Models**: Componente del patrón MVT que define la estructura y comportamiento de los datos. Cada Model se traduce automáticamente en una tabla de base de datos, permitiendo operaciones mediante Python. Un Model bien diseñado desde el inicio evita migraciones complejas y problemas de integridad de datos más adelante en el proyecto.
+
+ej:
+```python
+class Coche:
+    def __init__(self,marca,modelo):
+    self.marca = marca
+    self.modelo = modelo
+
+mi_coche = Coche("Toyota","Corolla"
+print(mi_coche.marca) #Resultado: Toyota
+```
+
+**Django VIEWS**: Componente lógico del MVT que actúa como **intermediario entre los datos y la presentación**. Recibe solicitudes HTTP, consulta o manipula datos a través del Model y determina qué Template construirá la respuesta. **Es donde se escribirá la mayor parte lógica del negocio**.
+
+**Django TEMPLATES**: Archivos HTML enriquecidos con el **lenguaje de marcado de Django (DTL)** que permiten insertar **datos dinámicos** en la presentación visual, separando el diseño de la interfaz de la lógica del negocio.
+
+**URL ROUTING**: Mecanismo de Django que **mapea las direcciones web con la Vista correspondiente**. Actúa como el directorio de tráfico de la aplicación: determina qué Vista procesa cada solicitud según la URL solicitada.
