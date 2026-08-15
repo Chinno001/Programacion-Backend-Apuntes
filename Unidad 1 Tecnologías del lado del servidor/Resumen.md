@@ -211,7 +211,7 @@ Ambiguo: no define formato, cantidad, atributos ni dominio.
 **Framework Django**
 Es de **código abierto**, se usa para el **desarrollo de aplicaciones del lado del server en Python**. Te da herramientas para la **autenticación, administración de paneles y seguridad**. En la práctica usar Django evita programar todo desde cero gracias a las funcionalidades que ya trae resueltas. Wenardo.
 
-**Django Models**: Componente del patrón MVT que define la estructura y comportamiento de los datos. Cada Model se traduce automáticamente en una tabla de base de datos, permitiendo operaciones mediante Python. Un Model bien diseñado desde el inicio evita migraciones complejas y problemas de integridad de datos más adelante en el proyecto.
+**Django Models**: Patrón del MVT que define la estructura y comportamiento de los datos. Cada Model se traduce automáticamente en una tabla de base de datos, permitiendo operaciones mediante Python. Un Model bien diseñado desde el inicio evita migraciones complejas y problemas de integridad de datos más adelante en el proyecto.
 
 ej:
 ```python
@@ -224,8 +224,33 @@ mi_coche = Coche("Toyota","Corolla"
 print(mi_coche.marca) #Resultado: Toyota
 ```
 
-**Django VIEWS**: Componente lógico del MVT que actúa como **intermediario entre los datos y la presentación**. Recibe solicitudes HTTP, consulta o manipula datos a través del Model y determina qué Template construirá la respuesta. **Es donde se escribirá la mayor parte lógica del negocio**.
+**Django VIEWS**: Lógica del MVT que actúa como **intermediario entre los datos y la presentación**. Recibe solicitudes HTTP, consulta o manipula datos a través del Model y determina qué Template construirá la respuesta. **Es donde se escribirá la mayor parte lógica del negocio**.
+
+
 
 **Django TEMPLATES**: Archivos HTML enriquecidos con el **lenguaje de marcado de Django (DTL)** que permiten insertar **datos dinámicos** en la presentación visual, separando el diseño de la interfaz de la lógica del negocio.
 
 **URL ROUTING**: Mecanismo de Django que **mapea las direcciones web con la Vista correspondiente**. Actúa como el directorio de tráfico de la aplicación: determina qué Vista procesa cada solicitud según la URL solicitada.
+
+**EL SERVIDOR Y SU INFRAESTRUCTURA**
+Dirección IP | El cliente | El Frontend | ----> Es el navegador o dispositivo que **inicia la conversación**. Se encarga de mostrar la info al usuario, todo lo que ve o toca es Frontend.
+**Solicitud (Request)** --> El cliente manda una de estas al servidor indicando qué quiere, por ejemplo "quiero ver el catálogo disponible de RAMS en Santiago".
+
+Dirección IP | El servidor | El Backend | ----> El computador remoto que **recibe la solicitud**, ejecuta el código, consulta los datos y devuelve una respuesta gestionando lógica de negocio, acceso a datos y seguridad. (el server recibe la búsqueda, consulta el inventario y devuelve los productos disponibles)
+Finalmente, el servidor manda la **respuesta (Response)** cuando **ya procesó la solicitud y devuelve los datos solicitados al cliente**.
+
+**CÓMO DJANGO ORGANIZA EL CÓDIGO**
+Tengo el código listo pero ¿dónde lo dejo? En un proyecto real si mezclara todo en un puro archivo lo más probable es que me genere un sistema complicado de mantener o imposible.
+Django resuelve este problema con un patrón que separa el código en capas con responsabilidades claras.
+**PATRÓN MVT**
+Django usa el mismo principio que MVC pero con nombres distintos y una diferencia de cómo se reparten las responsabilidades.
+
+Modelo (MVC) y Model (MVT) **Gestionan datos y la base de datos**
+Controlador (MVC) y View (MVT) **Tienen la lógica de negocio**
+Vista (MVC) y Template (MVT) **Definen el HTML que verá el usuario**
+
+---> La diferencia está en **View**. Porque en el **MVC el Controlador solo coordina**, pero en **Django View tiene toda la lógica, procesa el Model, procesa datos y selecciona el Template**
+
+
+
+
