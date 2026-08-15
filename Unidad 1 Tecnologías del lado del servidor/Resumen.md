@@ -51,8 +51,8 @@ Django lo adapta como **MVT**:
 | MVC tradicional | MVT Django | Rol |
 |---|---|---|
 | Modelo | **Model** | Gestiona los datos (el *qué*) |
-| Controlador | **View** | Lógica de negocio (el *cómo*) |
-| Vista | **Template** | Estructura HTML (el *dónde*) |
+| Vista | **View** | Lógica de negocio (el *cómo*) |
+| Controlador | **Template** | Estructura HTML (el *dónde*) |
 
 > ⚠️ **Ojo con la confusión de nombres:** en Django, la `View` cumple el rol del Controlador (procesa lógica), y el `Template` cumple el rol de la Vista tradicional (presentación).
 
