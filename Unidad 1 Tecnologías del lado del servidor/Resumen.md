@@ -232,14 +232,14 @@ print(mi_coche.marca) #Resultado: Toyota
 
 **URL ROUTING**: Mecanismo de Django que **mapea las direcciones web con la Vista correspondiente**. Actúa como el directorio de tráfico de la aplicación: determina qué Vista procesa cada solicitud según la URL solicitada.
 
-**EL SERVIDOR Y SU INFRAESTRUCTURA**
+# EL SERVIDOR Y SU INFRAESTRUCTURA
 Dirección IP | El cliente | El Frontend | ----> Es el navegador o dispositivo que **inicia la conversación**. Se encarga de mostrar la info al usuario, todo lo que ve o toca es Frontend.
 **Solicitud (Request)** --> El cliente manda una de estas al servidor indicando qué quiere, por ejemplo "quiero ver el catálogo disponible de RAMS en Santiago".
 
 Dirección IP | El servidor | El Backend | ----> El computador remoto que **recibe la solicitud**, ejecuta el código, consulta los datos y devuelve una respuesta gestionando lógica de negocio, acceso a datos y seguridad. (el server recibe la búsqueda, consulta el inventario y devuelve los productos disponibles)
 Finalmente, el servidor manda la **respuesta (Response)** cuando **ya procesó la solicitud y devuelve los datos solicitados al cliente**.
 
-**CÓMO DJANGO ORGANIZA EL CÓDIGO**
+# CÓMO DJANGO ORGANIZA EL CÓDIGO
 Tengo el código listo pero ¿dónde lo dejo? En un proyecto real si mezclara todo en un puro archivo lo más probable es que me genere un sistema complicado de mantener o imposible.
 Django resuelve este problema con un patrón que separa el código en capas con responsabilidades claras.
 **PATRÓN MVT**
@@ -251,6 +251,36 @@ Vista (MVC) y Template (MVT) **Definen el HTML que verá el usuario**
 
 ---> La diferencia está en **View**. Porque en el **MVC el Controlador solo coordina**, pero en **Django View tiene toda la lógica, procesa el Model, procesa datos y selecciona el Template**
 
+# Python en el Backend
+## Variables: los datos que el servidor recuerda
+En python, una variable es un espacio en la memoria del servidor que guarda un dato, ya sea número, texto o un booleano o también una lista.
 
+Lo importante: en el Back End, **una variable no es un ejercicio matemático abstracto, es información real del negocio.** El precio es el precio de un tomate que viene de la base de datos. El stock es el inventario actual de un agricultor. El nombre es el usuario que está comprando.
+
+Python tiene **tipado dinámico** por lo que no hay que declarar el tipo de dato de la variable, lo hace solo. Ej:
+```python
+precio = 1500  #INT
+nombre = "Bryan Rivas"  #STRING
+disponible = True  #BOOLEANO
+productos = ["ram", "ssd", "mouse", "teclado"]  #LISTA
+```
+## Operadores aritméticos
+Estos operadores son los que van a permitir al server hacer los cálculos de los datos del negocio.
+Por ejemplo **calcular el total de un pedido, aplicar un descuento, calcular el stock** etc.
+Ej:
+```python
+subtotal = 1500 + 2000    #3500 -sumar productos
+descuento = subtotal * 0.10    #350 -10% de descuento
+total = subtotal - descuento    #3150  -precio final
+unidades_por_caja = 12/4    #3 -division
+potencia = 2 ** 8    #256 -exponente
+```
+## Jerarquía PEMDAS
+Python no calcula las operaciones en el orden en que las escribes, **las evalúa según una jerarquía estricta.** No tenerla en cuenta al hacer los operadores de negocio el servidor puede calcular mal un precio o un descuento.
+La jerarquía es:
+**Paréntesis () {}
+Potencias y raíces ^ √
+Multiplicacion y división * /
+Suma y resta + -**
 
 
